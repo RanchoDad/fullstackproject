@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const tasksSchema = new Schema({
-    name: String,
+    title: String,
     description: String,
-    goal: { 
+    completionDateGoal: { 
         type: Date,  
         min: Date.now // Set the minimum value to the current date and time
       },
@@ -13,7 +13,11 @@ const tasksSchema = new Schema({
     complete: Boolean,
     tabled: Boolean,
     createdAt: { 
-        type: Date, default: Date.now 
+        type: Date, 
+        required: true,
+        default: function () {
+            return new Date().toLocaleString(); // Set the current date and time to the users local timezone
+        }
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 // import routers
 const indexRouter = require('./routes/index');
-// const mainschemaitemRouter = require('./routes/mainschemaitems');
+const tasksRouter = require('./routes/tasks');
 
 // pages begin with 'views, .ejs files
 app.set('views', path.join(__dirname, 'views'));
@@ -41,7 +41,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
-// app.use('/mainschemaitems', mainschemaitemRouter);
+app.use('/tasks', tasksRouter);
 
 // error handler
 app.use(function(err, req, res, next) {

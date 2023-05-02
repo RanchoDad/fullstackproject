@@ -3,7 +3,7 @@
 const express = require('express');
 let router = express.Router();
 const passport = require('passport');
-const mainschemaitemsController = require('../controllers/mainschemaitems');
+// const mainschemaitemsController = require('../controllers/mainschemaitems');
 
 // // This app has no "home" page, but your projects should 😀
 router.get('/', function(req, res, next) {

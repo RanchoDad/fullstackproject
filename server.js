@@ -14,7 +14,7 @@ require('dotenv').config()
 const PORT = process.env.PORT || 3000;
 
 const indexRouter = require('./routes/index');
-const mainschemaitemRouter = require('./routes/mainschemaitems');
+// const mainschemaitemRouter = require('./routes/mainschemaitems');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -37,7 +37,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
-app.use('/mainschemaitems', mainschemaitemRouter);
+// app.use('/mainschemaitems', mainschemaitemRouter);
 
 // error handler
 app.use(function(err, req, res, next) {

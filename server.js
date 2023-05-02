@@ -1,3 +1,4 @@
+// imports to run the server with google using express etc
 const createError = require('http-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -13,12 +14,15 @@ require('dotenv').config()
 
 const PORT = process.env.PORT || 3000;
 
+// import routers
 const indexRouter = require('./routes/index');
 // const mainschemaitemRouter = require('./routes/mainschemaitems');
 
+// pages begin with 'views, .ejs files
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// mount the middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'))
@@ -50,6 +54,7 @@ app.use(function(err, req, res, next) {
     res.render('error');
   });
 
+// listener to run the app
 app.listen(PORT, () => console.log('The app is working!', PORT))
 
 module.exports = app

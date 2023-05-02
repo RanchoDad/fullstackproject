@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const tasksSchema = new Schema({
     name: String,
     description: String,
-    goal: 
+    goal: { 
+        type: Date,  
+        min: Date.now // Set the minimum value to the current date and time
+      },
     new: Boolean,
     inProgress: Boolean,
     complete: Boolean,
@@ -12,10 +15,6 @@ const tasksSchema = new Schema({
     createdAt: { 
         type: Date, default: Date.now 
     },
-    date: { 
-        type: Date,  
-        min: Date.now // Set the minimum value to the current date and time
-      },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
